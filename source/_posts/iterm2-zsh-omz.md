@@ -4,7 +4,6 @@ date: 2017-03-24 10:25:14
 tags: mac
 ---
 最近公司来了很多新人需要配置Mac环境，都给他们推荐配置`iTerm2`+`Zsh`+`oh-my-zsh`。
-![powerlevel9l]
 
 ![powerlevel9k](https://camo.githubusercontent.com/80ec23fda88d2f445906a3502690f22827336736/687474703a2f2f692e696d6775722e636f6d2f777942565a51792e676966)
 <!--more-->
