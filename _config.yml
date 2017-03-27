@@ -70,7 +70,7 @@ theme: apollo
 deploy:
   type: git
   repo: https://github.com/wangyun122/Blog.git
-  name: wangyun122@gmail.com
+  name: wangyun
   email: wangyun122@gmail.com
 
 archive_generator:

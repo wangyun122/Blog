@@ -3,16 +3,15 @@ title: iTerm2 + Zsh + oh-my-zsh
 date: 2017-03-24 10:25:14
 tags: mac
 ---
-最近公司来了很多新人需要配置Mac环境，让他们先把`iTerm2`+`Zsh`+`oh-my-zsh`给装了。
-![powerlevel9l](https://camo.githubusercontent.com/31da002de611cfef95f6daaa8b1baedef4079703/687474703a2f2f6268696c6275726e2e6f72672f636f6e74656e742f696d616765732f323031352f30312f706c396b2d696d70726f7665642e706e67)
+最近公司来了很多新人需要配置Mac环境，都给他们推荐配置`iTerm2`+`Zsh`+`oh-my-zsh`。
+![powerlevel9l]
+
 ![powerlevel9k](https://camo.githubusercontent.com/80ec23fda88d2f445906a3502690f22827336736/687474703a2f2f692e696d6775722e636f6d2f777942565a51792e676966)
 <!--more-->
 
-最近公司来了很多新人需要配置Mac环境，让他们先把`iTerm2`+`Zsh`+`oh-my-zsh`给装了。
-
 [iTerm2](http://www.iterm2.com/) 应该是 是 MAC 下最好的终端工具。我的终端固定在上半屏幕，使用cmd+,呼入呼出，再加上一些配色定制，用起来十分过瘾，用习惯之后根本无法适应win了。
 
-而`Zsh`号称是终极shell，功能强大并且兼容`bash`，只不过配置比较复杂，但是如果安装了`oh my zsh`补丁就能轻松起飞。
+而`Zsh`号称是终极shell，功能强大并且兼容`bash`，只不过配置比较复杂，但是如果安装了`oh my zsh`补丁就能轻松起飞！
 
 `Zsh`具有以下主要功能
 
@@ -72,7 +71,7 @@ chsh -s /usr/local/bin/zsh
 现在重启下终端或者新开一个tab会发现已经是彩色的shell了。
 `Zsh`的配置在`.zshrc`中，默认的主题是`robbyrussell `，给大家推荐一个酷炫的主题`powerlevel9k`。
 ![powerlevel9l](https://camo.githubusercontent.com/31da002de611cfef95f6daaa8b1baedef4079703/687474703a2f2f6268696c6275726e2e6f72672f636f6e74656e742f696d616765732f323031352f30312f706c396b2d696d70726f7665642e706e67)
-![powerlevel9k](https://camo.githubusercontent.com/80ec23fda88d2f445906a3502690f22827336736/687474703a2f2f692e696d6775722e636f6d2f777942565a51792e676966)
+
 
 首先安装`powerlevel9k`
 
