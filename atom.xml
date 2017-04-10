@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://this.dog/"/>
-  <updated>2017-04-10T07:16:36.000Z</updated>
+  <updated>2017-04-10T07:18:22.000Z</updated>
   <id>http://this.dog/</id>
   
   <author>
@@ -20,13 +20,13 @@
     <link href="http://this.dog/2017/04/08/auto-deploy-blog/"/>
     <id>http://this.dog/2017/04/08/auto-deploy-blog/</id>
     <published>2017-04-08T09:16:32.000Z</published>
-    <updated>2017-04-10T07:16:36.000Z</updated>
+    <updated>2017-04-10T07:18:22.000Z</updated>
     
     <content type="html"><![CDATA[<p>懒惰一直是码农优秀的品质之一。<br>之前把blog是部署在github page上,而现在扔到自己服务器部署就麻烦了一点，不过还好github有<code>webhook</code>功能，很方便的就能实现自动部署。</p>
 <h3 id="1-配置hexo"><a href="#1-配置hexo" class="headerlink" title="1.配置hexo"></a>1.配置hexo</h3><p>首先Hexo 提供了快速方便的一键部署功能，让您只需一条命令就能将网站部署到服务器上。<br>因为我是把代码托管在GitHub上，所以首先安装 <a href="https://github.com/hexojs/hexo-deployer-git" target="_blank" rel="external">hexo-deployer-git</a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ npm install hexo-deployer-git --save</div></pre></td></tr></table></figure></p>
 <a id="more"></a>
 <p>修改配置。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">deploy:</div><div class="line">  type: git</div><div class="line">  repo: &lt;repository url&gt;</div><div class="line">  branch: [branch]</div><div class="line">  message: [message]</div></pre></td></tr></table></figure></p>
-<p>配置完成之后输入命令<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure></p>
+<p>配置完成之后输入命令<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ hexo g # 生成静态文件</div><div class="line">$ hexo d # 上传静态文件</div></pre></td></tr></table></figure></p>
 <p>hexo会自动生成静态文件，然后把静态文件拷贝到<code>.deploy_git</code>，然后根据你的配置提交到仓库，默认为gh-page分支。</p>
 <h3 id="2-配置GitHub的Webhook"><a href="#2-配置GitHub的Webhook" class="headerlink" title="2.配置GitHub的Webhook"></a>2.配置GitHub的Webhook</h3><p>打开项目页面。在<code>Setting-&gt;Webhooks</code>中配置webhooks<br><img src="https://ww3.sinaimg.cn/large/006tNc79gy1fefeplnzryj31kw15ddob.jpg" alt="github"><br>添加完成之后可以发送请求来测试是否成功，请求的<code>X-GitHub-Event</code>为<code>ping</code>。<br><img src="https://ww3.sinaimg.cn/large/006tNc79gy1fehfjmgdwhj31c012o7ai.jpg" alt="Redeliver"></p>
 <h3 id="3-服务器接口"><a href="#3-服务器接口" class="headerlink" title="3.服务器接口"></a>3.服务器接口</h3><p>要实现服务器接口了，本来打算自己写结果发现有个现成的库: <a href="https://github.com/rvagg/github-webhook-handler" target="_blank" rel="external">github-webhook-handler</a>。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm  i github-webhook-handler</div></pre></td></tr></table></figure></p>
