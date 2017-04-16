@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://this.dog/"/>
-  <updated>2017-04-16T16:03:43.000Z</updated>
+  <updated>2017-04-16T16:21:21.000Z</updated>
   <id>http://this.dog/</id>
   
   <author>
@@ -14,6 +14,116 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>lodash</title>
+    <link href="http://this.dog/2017/04/17/lodash/"/>
+    <id>http://this.dog/2017/04/17/lodash/</id>
+    <published>2017-04-16T16:18:41.000Z</published>
+    <updated>2017-04-16T16:21:21.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="Lodash"><a href="#Lodash" class="headerlink" title="Lodash"></a>Lodash</h1><p>有多年开发经验的工程师，往往都会有自己的一套工具库，称为 utils、helpers 等等，这套库一方面是自己的技术积累，另一方面也是对某项技术的扩展，领先于技术规范的制定和实现。</p>
+<p>Lodash 就是这样的一套工具库，它内部封装了诸多对字符串、数组、对象等常见数据类型的处理函数，其中部分是目前 ECMAScript 尚未制定的规范，但同时被业界所认可的辅助函数。目前每天使用 npm 安装 Lodash 的数量在百万级以上，这在一定程度上证明了其代码的健壮性，值得我们在项目中一试。</p>
+<h2 id="模块组成"><a href="#模块组成" class="headerlink" title="模块组成"></a>模块组成</h2><p>Lodash 提供的辅助函数主要分为以下几类，函数列表和用法实例请查看 <a href="https://lodash.com/docs" target="_blank" rel="external">Lodash 的官方文档</a> ：</p>
+<ul>
+<li><code>Array</code> ，适用于数组类型，比如填充数据、查找元素、数组分片等操作</li>
+<li><code>Collection</code> ，适用于数组和对象类型，部分适用于字符串，比如分组、查找、过滤等操作</li>
+<li><code>Function</code> ，适用于函数类型，比如节流、延迟、缓存、设置钩子等操作</li>
+<li><code>Lang</code> ，普遍适用于各种类型，常用于执行类型判断和类型转换</li>
+<li><code>Math</code> ，适用于数值类型，常用于执行数学运算</li>
+<li><code>Number</code> ，适用于生成随机数，比较数值与数值区间的关系</li>
+<li><code>Object</code> ，适用于对象类型，常用于对象的创建、扩展、类型转换、检索、集合等操作</li>
+<li><code>Seq</code> ，常用于创建链式调用，提高执行性能（惰性计算）</li>
+<li><p><code>String</code> ，适用于字符串类型<br><code>lodash/fp</code> 模块提供了更接近函数式编程的开发方式，其内部的函数经过包装，具有 immutable、auto-curried、iteratee-first、data-last（官方介绍）等特点。Lodash 在 <a href="https://github.com/lodash/lodash/wiki/FP-Guide" target="_blank" rel="external">GitHub Wiki</a> 中对 lodash/fp 的特点做了如下概述：</p>
+</li>
+<li><p>Fixed Arity，固化参数个数，便于柯里化</p>
+</li>
+<li>Rearragned Arguments，重新调整参数位置，便于函数之间的聚合</li>
+<li>Capped Iteratee Argument，封装 Iteratee 参数</li>
+<li>New Methods<blockquote>
+<p>In functional programming, an iteratee is a composable abstraction for incrementally processing sequentially presented chunks of input data in a purely functional fashion. With iteratees, it is possible to lazily transform how a resource will emit data, for example, by converting each chunk of the input to uppercase as they are retrieved or by limiting the data to only the five first chunks without loading the whole input data into memory. Iteratees are also responsible for opening and closing resources, providing predictable resource management. ———— <a href="https://en.wikipedia.org/wiki/Iteratee" target="_blank" rel="external">iteratee, wikipedia</a></p>
+</blockquote>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">_.map([&apos;6&apos;, &apos;8&apos;, &apos;10&apos;], parseInt);fp.map(parseInt)([&apos;6&apos;, &apos;8&apos;, &apos;10&apos;]);fp.padCharsStart(&apos;-&apos;)(3)(&apos;a&apos;);var compact = _.partial(_.filter, _, Boolean);compact([&apos;a&apos;, null, &apos;c&apos;]);var compact = fp.filter(Boolean);compact([&apos;a&apos;, null, &apos;c&apos;]);</div></pre></td></tr></table></figure>
+<p>在 React + Webpack + Babel(ES6) 的开发环境中，使用 Lodash 需要安装插件 <a href="https://www.npmjs.com/package/babel-plugin-lodash" target="_blank" rel="external">babel-plugin-lodash</a> 并更新 Babel 配置文件：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install --save lodashnpm install --save-dev babel-plugin-lodash</div></pre></td></tr></table></figure>
+<p>更新 Babel 的配置文件 <code>.babelrc</code>:</p>
+<p>使用方式：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">import &#123; add &#125; from &apos;lodash/fp&apos;;_.map([1, 2, 3], addOne);</div></pre></td></tr></table></figure>
+<h2 id="性能"><a href="#性能" class="headerlink" title="性能"></a>性能</h2><p>在 Filip Zawada 的文章 <a href="http://filimanjaro.com/blog/2014/introducing-lazy-evaluation/" target="_blank" rel="external">《How to Speed Up Lo-Dash ×100? Introducing Lazy Evaluation》</a> 中提到了 Lodash 提高执行速度的思路，主要有三点：Lazy Evaluation、Pipelining 和 Deferred Execution。下面两张图来自 Filip 的博客：</p>
+<p><img src="https://ww4.sinaimg.cn/large/006tNc79gy1feozanssyvg30b407sasu.gif" alt="p1"><br>假设有如上图所示的问题：从若干个球中取出三个面值小于 10 的球。第一步是从所有的球中取出所有面值小于 10 的球，第二步是从上一步的结果取三个球。</p>
+<p><img src="https://ww3.sinaimg.cn/large/006tNc79gy1feozb5yszjg30b407s132.gif" alt="p2"><br>上图是另一种解决方案，如果一个球能够通过第一步，那么就继续执行第二步，直至结束然后测试下一个球……当我们取到三个球之后就中断整个循环。Filip 称这是 Lazy Evaluation Algorithm，就个人理解这并不全面，他后续提到的 Pipelining(管道计算)，再加上一个中断循环执行的算法应该更符合这里的图示。</p>
+<p>此外，使用 Lodash 的链式调用时，只有显示或隐式调用 <code>.value</code> 方法才会对链式调用的整个操作进行取值，这种不在声明时立即求值，而在使用时求值的方式，是 Lazy Evaluation 最大的特点。</p>
+<h2 id="九个实例"><a href="#九个实例" class="headerlink" title="九个实例"></a>九个实例</h2><p>受益于 Lodash 的普及程度，使用它可以提高多人开发时阅读代码的效率，减少彼此之间的误解（Loss of Consciousness）。在 <a href="http://colintoh.com/blog/lodash-10-javascript-utility-functions-stop-rewriting" target="_blank" rel="external">《Lodash: 10 Javascript Utility Functions That You Should Probably Stop Rewriting》</a> 一文中，作者列举了多个常用的 Lodash 函数，实例演示了使用 Lodash 的技巧。</p>
+<ol>
+<li>N 次循环</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">for(var i = 0; i &lt; 5; i++) &#123;Array.apply(null, Array(5)).forEach(function()&#123;</div></pre></td></tr></table></figure>
+<p><code>for</code> 语句是执行循环的不二选择， <code>Array.apply</code> 也可以模拟循环，但在上面代码的使用场景下， <code>_.times()</code> 的解决方式更加简洁和易于理解。</p>
+<ol>
+<li>深层查找属性值</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&quot;pets&quot;: [&#123;&quot;name&quot;:&quot;dog1&quot;&#125;, &#123;&quot;name&quot;: &quot;dog2&quot;&#125;] &quot;pets&quot;: [&#123;&quot;name&quot;:&quot;dog3&quot;&#125;, &#123;&quot;name&quot;: &quot;dog4&quot;&#125;]ownerArr.map(function(owner)&#123; return owner.pets[0].name;_.map(ownerArr, &apos;pets[0].name&apos;);</div></pre></td></tr></table></figure>
+<p><code>_.map</code> 方法是对原生 <code>map</code> 方法的改进，其中使用 <code>pets[0].name</code> 字符串对嵌套数据取值的方式简化了很多冗余的代码，非常类似使用 jQuery 选择 DOM 节点 <code>ul &gt; li &gt; a</code> ，对于前端开发者来说有种久违的亲切感。</p>
+<ol>
+<li>个性化数组</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Array.apply(null, Array(6)).map(function(item, index)&#123;_.times(6, _.uniqueId.bind(null, &apos;ball_&apos;));_.times(6, _.partial(_.uniqueId, &apos;ball_&apos;));</div></pre></td></tr></table></figure>
+<p>在上面的代码中，我们要创建一个初始值不同、长度为 6 的数组，其中 <code>_.uniqueId</code> 方法用于生成独一无二的标识符（递增的数字，在程序运行期间保持独一无二）， <code>_partial</code> 方法是对 <code>bind</code> 的封装。</p>
+<ol>
+<li>深拷贝</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">var objB = _.cloneDeep(objA);</div></pre></td></tr></table></figure>
+<p>JavaScript 没有直接提供深拷贝的函数，但我们可以用其他函数来模拟，比如 <code>JSON.parse(JSON.stringify(objectToClone))</code> ，但这种方法要求对象中的属性值不能是函数。Lodash 中的 <code>_.cloneDeep</code> 函数封装了深拷贝的逻辑，用起来更加简洁。</p>
+<ol>
+<li>随机数</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">function getRandomNumber(min, max)&#123; return Math.floor(Math.random() * (max - min + 1)) + min;</div></pre></td></tr></table></figure>
+<p>Lodash 的随机数生成函数更贴近实际开发，ECMAScript 的随机数生成函数是底层必备的接口，两者都不可或缺。此外，使用 <code>_.random(15, 20, true)</code> 还可以在 15 到 20 之间生成随机的浮点数。</p>
+<ol>
+<li>对象扩展</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Object.prototype.extend = function(obj) &#123; if (obj.hasOwnProperty(i)) &#123;var objA = &#123;&quot;name&quot;: &quot;colin&quot;, &quot;car&quot;: &quot;suzuki&quot;&#125;;var objB = &#123;&quot;name&quot;: &quot;james&quot;, &quot;age&quot;: 17&#125;;</div></pre></td></tr></table></figure>
+<p><code>_.assign</code> 是浅拷贝，和 ES6 新增的 <code>Ojbect.assign</code> 函数功能一致（建议优先使用 <code>Object.assign</code> ）。</p>
+<ol>
+<li>筛选属性</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Object.prototype.remove = function(arr) &#123; arr.forEach(function(key)&#123;var objA = &#123;&quot;name&quot;: &quot;colin&quot;, &quot;car&quot;: &quot;suzuki&quot;, &quot;age&quot;: 17&#125;;objA.remove([&apos;car&apos;, &apos;age&apos;]);objA = _.omit(objA, [&apos;car&apos;, &apos;age&apos;]);objA = _.omit(objA, &apos;car&apos;);objA = _.omit(objA, _.isNumber);</div></pre></td></tr></table></figure>
+<p>大多数情况下，Lodash 所提供的辅助函数都会比原生的函数更贴近开发需求。在上面的代码中，开发者可以使用数组、字符串以及函数的方式筛选对象的属性，并且最终会返回一个新的对象，中间执行筛选时不会对旧对象产生影响。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Object.prototype.pick = function(arr) &#123; arr.forEach(function(key)&#123;var objA = &#123;&quot;name&quot;: &quot;colin&quot;, &quot;car&quot;: &quot;suzuki&quot;, &quot;age&quot;: 17&#125;;var objB = objA.pick([&apos;car&apos;, &apos;age&apos;]);var objB = _.pick(objA, [&apos;car&apos;, &apos;age&apos;]);</div></pre></td></tr></table></figure>
+<p><code>_.pick</code> 是 <code>_.omit</code> 的相反操作，用于从其他对象中挑选属性生成新的对象。</p>
+<ol>
+<li>随机元素</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">var luckyDraw = [&quot;Colin&quot;, &quot;John&quot;, &quot;James&quot;, &quot;Lily&quot;, &quot;Mary&quot;];function pickRandomPerson(luckyDraw)&#123; var index = Math.floor(Math.random() * (luckyDraw.length -1));pickRandomPerson(luckyDraw);</div></pre></td></tr></table></figure>
+<p><code>_.sample</code> 支持随机挑选多个元素并返回心的数组。</p>
+<ol>
+<li>针对 JSON.parse 的错误处理</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">function parseLodash(str)&#123; return _.attempt(JSON.parse.bind(null, str));parse(&apos;&#123;&quot;name&quot;: &quot;colin&quot;&#125;&apos;);parseLodash(&apos;&#123;&quot;name&quot;: &quot;colin&quot;&#125;&apos;);</div></pre></td></tr></table></figure>
+<p>如果你在使用 <code>JSON.parse</code> 时没有预置错误处理，那么它很有可能会成为一个定时炸弹，我们不应该默认接收的 JSON 对象都是有效的。 <code>try-catch</code> 是最常见的错误处理方式，如果项目中 Lodash，那么可以使用 <code>_.attmpt</code> 替代 <code>try-catch</code> 的方式，当解析 JSON 出错时，该方法会返回一个 <code>Error</code> 对象。</p>
+<blockquote>
+<p>随着 ES6 的普及，Lodash 的功能或多或少会被原生功能所替代，所以使用时还需要进一步甄别，建议优先使用原生函数，有关 ES6 替代 Lodash 的部分，请参考文章 <a href="https://www.sitepoint.com/lodash-features-replace-es6/" target="_blank" rel="external">《10 Lodash Features You Can Replace with ES6》</a> （中文版 <a href="http://www.zcfy.cc/article/10-lodash-features-you-can-replace-with-es6-467.html" target="_blank" rel="external">《10 个可用 ES6 替代的 Lodash 特性》</a> ）。</p>
+</blockquote>
+<p>其中有两处非常值得一看：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">const object = &#123; &apos;a&apos;: [&#123; &apos;b&apos;: &#123; &apos;c&apos;: 3 &#125; &#125;, 4] &#125;;].map(path =&gt; path(object));const pipe = functions =&gt; data =&gt; &#123; (value, func) =&gt; func(value),</div></pre></td></tr></table></figure>
+<p>在 ES6 中，如果一个函数只接收一个形参且函数体是一个 <code>return</code> 语句，就可以使用箭头函数简化为：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">const func = function (p) &#123;</div></pre></td></tr></table></figure>
+<p>当有多重嵌套时，可以简化为：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">const func = a =&gt; b =&gt; c =&gt; a + b + c;const func = function (a) &#123;</div></pre></td></tr></table></figure>
+<p> 参考资料 </p>
+<p><a href="http://pinggod.com/2016/Lodash/" target="_blank" rel="external">Lodash</a></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;Lodash&quot;&gt;&lt;a href=&quot;#Lodash&quot; class=&quot;headerlink&quot; title=&quot;Lodash&quot;&gt;&lt;/a&gt;Lodash&lt;/h1&gt;&lt;p&gt;有多年开发经验的工程师，往往都会有自己的一套工具库，称为 utils、helpers 等等，这套库一方面是自
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>rem笔记</title>
