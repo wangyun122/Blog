@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://this.dog/"/>
-  <updated>2017-04-16T16:44:16.000Z</updated>
+  <updated>2017-04-16T16:45:38.000Z</updated>
   <id>http://this.dog/</id>
   
   <author>
@@ -20,9 +20,9 @@
     <link href="http://this.dog/2017/04/17/lodash/"/>
     <id>http://this.dog/2017/04/17/lodash/</id>
     <published>2017-04-16T16:18:41.000Z</published>
-    <updated>2017-04-16T16:44:16.000Z</updated>
+    <updated>2017-04-16T16:45:38.000Z</updated>
     
-    <content type="html"><![CDATA[<h1 id="Lodash"><a href="#Lodash" class="headerlink" title="Lodash"></a>Lodash</h1><p>有多年开发经验的工程师，往往都会有自己的一套工具库，称为 utils、helpers 等等，这套库一方面是自己的技术积累，另一方面也是对某项技术的扩展，领先于技术规范的制定和实现。</p>
+    <content type="html"><![CDATA[<p>有多年开发经验的工程师，往往都会有自己的一套工具库，称为 utils、helpers 等等，这套库一方面是自己的技术积累，另一方面也是对某项技术的扩展，领先于技术规范的制定和实现。</p>
 <p>Lodash 就是这样的一套工具库，它内部封装了诸多对字符串、数组、对象等常见数据类型的处理函数，其中部分是目前 ECMAScript 尚未制定的规范，但同时被业界所认可的辅助函数。目前每天使用 npm 安装 Lodash 的数量在百万级以上，这在一定程度上证明了其代码的健壮性，值得我们在项目中一试。<br><a id="more"></a></p>
 <h2 id="模块组成"><a href="#模块组成" class="headerlink" title="模块组成"></a>模块组成</h2><p>Lodash 提供的辅助函数主要分为以下几类，函数列表和用法实例请查看 <a href="https://lodash.com/docs" target="_blank" rel="external">Lodash 的官方文档</a> ：</p>
 <ul>
@@ -118,7 +118,7 @@
     
     <summary type="html">
     
-      &lt;h1 id=&quot;Lodash&quot;&gt;&lt;a href=&quot;#Lodash&quot; class=&quot;headerlink&quot; title=&quot;Lodash&quot;&gt;&lt;/a&gt;Lodash&lt;/h1&gt;&lt;p&gt;有多年开发经验的工程师，往往都会有自己的一套工具库，称为 utils、helpers 等等，这套库一方面是自己的技术积累，另一方面也是对某项技术的扩展，领先于技术规范的制定和实现。&lt;/p&gt;
+      &lt;p&gt;有多年开发经验的工程师，往往都会有自己的一套工具库，称为 utils、helpers 等等，这套库一方面是自己的技术积累，另一方面也是对某项技术的扩展，领先于技术规范的制定和实现。&lt;/p&gt;
 &lt;p&gt;Lodash 就是这样的一套工具库，它内部封装了诸多对字符串、数组、对象等常见数据类型的处理函数，其中部分是目前 ECMAScript 尚未制定的规范，但同时被业界所认可的辅助函数。目前每天使用 npm 安装 Lodash 的数量在百万级以上，这在一定程度上证明了其代码的健壮性，值得我们在项目中一试。&lt;br&gt;
     
     </summary>
