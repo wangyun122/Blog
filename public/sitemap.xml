@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://this.dog/2017/04/08/auto-deploy-blog/</loc>
+    
+    <lastmod>2017-04-12T05:43:01.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://this.dog/2017/03/24/iterm2-zsh-omz/</loc>
     
     <lastmod>2017-03-27T03:23:02.000Z</lastmod>
