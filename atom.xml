@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://this.dog/"/>
-  <updated>2017-04-25T09:41:32.000Z</updated>
+  <updated>2017-04-25T09:49:49.000Z</updated>
   <id>http://this.dog/</id>
   
   <author>
@@ -20,17 +20,20 @@
     <link href="http://this.dog/2017/04/22/autosize-textarea/"/>
     <id>http://this.dog/2017/04/22/autosize-textarea/</id>
     <published>2017-04-22T09:59:03.000Z</published>
-    <updated>2017-04-25T09:41:32.000Z</updated>
+    <updated>2017-04-25T09:49:49.000Z</updated>
     
     <content type="html"><![CDATA[  <link href="/css/app.9bd8bf302c6db2c926ed30a59be3d738.css" rel="stylesheet">
 
-<body><br>  <div id="app"></div><br>  <script type="text/javascript" src="/js/manifest.ca37b41b2fd7d81b83e4.js"></script><br>  <script type="text/javascript" src="/js/vendor.0b74843da6dcc695fdbe.js"></script><br>  <script type="text/javascript" src="/js/app.62d70b60d2d2710dc574.js"></script><br></body>]]></content>
+
+<p>  <div id="app"></div><br>  <script type="text/javascript" src="/js/manifest.ca37b41b2fd7d81b83e4.js"></script><br>  <script type="text/javascript" src="/js/vendor.0b74843da6dcc695fdbe.js"></script><br>  <script type="text/javascript" src="/js/app.62d70b60d2d2710dc574.js"></script></p>
+]]></content>
     
     <summary type="html">
     
         &lt;link href=&quot;/css/app.9bd8bf302c6db2c926ed30a59be3d738.css&quot; rel=&quot;stylesheet&quot;&gt;
 
-&lt;body&gt;&lt;br&gt;  &lt;div id=&quot;app&quot;&gt;&lt;/div&gt;&lt;br&gt;  &lt;script type=&quot;text/jav
+
+&lt;p&gt;  &lt;div id=&quot;app&quot;&gt;&lt;/div&gt;&lt;br&gt;  &lt;script type=&quot;text/javascrip
     
     </summary>
     
