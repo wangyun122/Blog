@@ -2,9 +2,44 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://this.dog/2017/04/22/autosize-textarea/</loc>
+    
+    <lastmod>2017-04-25T09:41:32.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://this.dog/css/app.9bd8bf302c6db2c926ed30a59be3d738.css</loc>
+    
+    <lastmod>2017-04-25T08:44:24.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://this.dog/js/app.62d70b60d2d2710dc574.js</loc>
+    
+    <lastmod>2017-04-25T08:44:24.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://this.dog/js/manifest.ca37b41b2fd7d81b83e4.js</loc>
+    
+    <lastmod>2017-04-25T08:44:24.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://this.dog/js/vendor.0b74843da6dcc695fdbe.js</loc>
+    
+    <lastmod>2017-04-25T08:44:24.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://this.dog/2017/04/17/lodash/</loc>
     
-    <lastmod>2017-04-16T16:45:38.000Z</lastmod>
+    <lastmod>2017-04-19T08:19:09.000Z</lastmod>
     
   </url>
   

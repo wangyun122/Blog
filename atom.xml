@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://this.dog/"/>
-  <updated>2017-04-16T16:45:38.000Z</updated>
+  <updated>2017-04-25T09:41:32.000Z</updated>
   <id>http://this.dog/</id>
   
   <author>
@@ -16,14 +16,36 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>autosize--textarea</title>
+    <link href="http://this.dog/2017/04/22/autosize-textarea/"/>
+    <id>http://this.dog/2017/04/22/autosize-textarea/</id>
+    <published>2017-04-22T09:59:03.000Z</published>
+    <updated>2017-04-25T09:41:32.000Z</updated>
+    
+    <content type="html"><![CDATA[  <link href="/css/app.9bd8bf302c6db2c926ed30a59be3d738.css" rel="stylesheet">
+
+<body><br>  <div id="app"></div><br>  <script type="text/javascript" src="/js/manifest.ca37b41b2fd7d81b83e4.js"></script><br>  <script type="text/javascript" src="/js/vendor.0b74843da6dcc695fdbe.js"></script><br>  <script type="text/javascript" src="/js/app.62d70b60d2d2710dc574.js"></script><br></body>]]></content>
+    
+    <summary type="html">
+    
+        &lt;link href=&quot;/css/app.9bd8bf302c6db2c926ed30a59be3d738.css&quot; rel=&quot;stylesheet&quot;&gt;
+
+&lt;body&gt;&lt;br&gt;  &lt;div id=&quot;app&quot;&gt;&lt;/div&gt;&lt;br&gt;  &lt;script type=&quot;text/jav
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
     <title>lodash</title>
     <link href="http://this.dog/2017/04/17/lodash/"/>
     <id>http://this.dog/2017/04/17/lodash/</id>
     <published>2017-04-16T16:18:41.000Z</published>
-    <updated>2017-04-16T16:45:38.000Z</updated>
+    <updated>2017-04-19T08:19:09.000Z</updated>
     
     <content type="html"><![CDATA[<p>有多年开发经验的工程师，往往都会有自己的一套工具库，称为 utils、helpers 等等，这套库一方面是自己的技术积累，另一方面也是对某项技术的扩展，领先于技术规范的制定和实现。</p>
-<p>Lodash 就是这样的一套工具库，它内部封装了诸多对字符串、数组、对象等常见数据类型的处理函数，其中部分是目前 ECMAScript 尚未制定的规范，但同时被业界所认可的辅助函数。目前每天使用 npm 安装 Lodash 的数量在百万级以上，这在一定程度上证明了其代码的健壮性，值得我们在项目中一试。<br><a id="more"></a></p>
+<p>Lodash 就是这样的一套工具库，它内部封装了诸多对字符串、数组、对象等常见数据类型的处理函数，其中部分是目前 ECMAScript 尚未制定的规范，但同时被业界所认可的辅助函数。目前每天使用 npm 安装 Lodash 的数量在百万级以上，这在一定程度上明了其代码的健壮性，值得我们在项目中一试。<br><a id="more"></a></p>
 <h2 id="模块组成"><a href="#模块组成" class="headerlink" title="模块组成"></a>模块组成</h2><p>Lodash 提供的辅助函数主要分为以下几类，函数列表和用法实例请查看 <a href="https://lodash.com/docs" target="_blank" rel="external">Lodash 的官方文档</a> ：</p>
 <ul>
 <li><code>Array</code> ，适用于数组类型，比如填充数据、查找元素、数组分片等操作</li>
@@ -119,7 +141,7 @@
     <summary type="html">
     
       &lt;p&gt;有多年开发经验的工程师，往往都会有自己的一套工具库，称为 utils、helpers 等等，这套库一方面是自己的技术积累，另一方面也是对某项技术的扩展，领先于技术规范的制定和实现。&lt;/p&gt;
-&lt;p&gt;Lodash 就是这样的一套工具库，它内部封装了诸多对字符串、数组、对象等常见数据类型的处理函数，其中部分是目前 ECMAScript 尚未制定的规范，但同时被业界所认可的辅助函数。目前每天使用 npm 安装 Lodash 的数量在百万级以上，这在一定程度上证明了其代码的健壮性，值得我们在项目中一试。&lt;br&gt;
+&lt;p&gt;Lodash 就是这样的一套工具库，它内部封装了诸多对字符串、数组、对象等常见数据类型的处理函数，其中部分是目前 ECMAScript 尚未制定的规范，但同时被业界所认可的辅助函数。目前每天使用 npm 安装 Lodash 的数量在百万级以上，这在一定程度上明了其代码的健壮性，值得我们在项目中一试。&lt;br&gt;
     
     </summary>
     
