@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://this.dog/"/>
-  <updated>2017-04-25T09:49:49.000Z</updated>
+  <updated>2017-04-26T07:13:56.000Z</updated>
   <id>http://this.dog/</id>
   
   <author>
@@ -20,20 +20,213 @@
     <link href="http://this.dog/2017/04/22/autosize-textarea/"/>
     <id>http://this.dog/2017/04/22/autosize-textarea/</id>
     <published>2017-04-22T09:59:03.000Z</published>
-    <updated>2017-04-25T09:49:49.000Z</updated>
+    <updated>2017-04-26T07:13:56.000Z</updated>
     
-    <content type="html"><![CDATA[  <link href="/css/app.9bd8bf302c6db2c926ed30a59be3d738.css" rel="stylesheet">
+    <content type="html"><![CDATA[  <script src="https://unpkg.com/vue/dist/vue.js"></script>
+  <style>
+    .wrapper {
+      display: inline-block;
+      width: 100%;
+      position: relative;
+      vertical-align: middle;
+      margin: 0;
+      padding: 0;
+    }
+
+    textarea {
+      max-width: 100%;
+      vertical-align: bottom;
+      font-size: 14px;
+    }
+
+    .i-input {
+      display: inline-block;
+      width: 300px;
+      line-height: 1.5;
+      padding: 4px 7px;
+      border: 1px solid #d7dde4;
+      border-radius: 4px;
+      color: #657180;
+      background-color: #fff;
+      background-image: none;
+      position: relative;
+      cursor: text;
+    }
+
+    .i-input:hover {
+      border-color: #42b983;
+    }
+
+    .i-input:focus {
+      border-color: #42b983;
+      outline: 0;
+    }
+  </style>
 
 
-<p>  <div id="app"></div><br>  <script type="text/javascript" src="/js/manifest.ca37b41b2fd7d81b83e4.js"></script><br>  <script type="text/javascript" src="/js/vendor.0b74843da6dcc695fdbe.js"></script><br>  <script type="text/javascript" src="/js/app.62d70b60d2d2710dc574.js"></script></p>
-]]></content>
+
+  <div id="app">
+    <div class="wrapper">
+      <textarea class="i-input" ref="textarea" :style="textareaStyles" placeholder="请输入..." :value="currentValue" @input="handleInput">
+        </textarea>
+    </div>
+  </div>
+
+  <script>
+    var hiddenTextarea;
+
+    var HIDDEN_STYLE = `
+    height:0 !important;
+    min-height:0 !important;
+    max-height:none !important;
+    visibility:hidden !important;
+    overflow:hidden !important;
+    position:absolute !important;
+    z-index:-1000 !important;
+    top:0 !important;
+    right:0 !important
+`;
+
+    var CONTEXT_STYLE = [
+      'letter-spacing',
+      'line-height',
+      'padding-top',
+      'padding-bottom',
+      'font-family',
+      'font-weight',
+      'font-size',
+      'text-rendering',
+      'text-transform',
+      'width',
+      'text-indent',
+      'padding-left',
+      'padding-right',
+      'border-width',
+      'box-sizing'
+    ];
+    new Vue({
+      el: '#app',
+      data: {
+        textareaStyles: {},
+        currentValue: this.value,
+        autosize: {
+          type: [Object, Boolean],
+          defaule: true
+        }
+      },
+      mounted:function(){
+        this.resizeTextarea();
+      },
+      methods: {
+        handleInput: function(event) {
+          var value = event.target.value;
+          if (this.number) value = Number.isNaN(Number(value)) ? value : Number(value);
+          this.setCurrentValue(value);
+        },
+        setCurrentValue: function(value) {
+          if (value === this.currentValue) return;
+          this.$nextTick(() => {
+            this.resizeTextarea();
+          });
+          this.currentValue = value;
+        },
+        resizeTextarea() {
+          const autosize = this.autosize;
+
+          const minRows = autosize.minRows;
+          const maxRows = autosize.maxRows;
+
+          this.textareaStyles = this.calcTextareaHeight(this.$refs.textarea, minRows, maxRows);
+        },
+        calcTextareaHeight(targetNode, minRows = null, maxRows = null) {
+          if (!hiddenTextarea) {
+            hiddenTextarea = document.createElement('textarea');
+            document.body.appendChild(hiddenTextarea);
+          }
+
+          let {
+            paddingSize,
+            borderSize,
+            boxSizing,
+            contextStyle
+          } = this.calculateNodeStyling(targetNode);
+
+          hiddenTextarea.setAttribute('style', `${contextStyle};${HIDDEN_STYLE}`);
+          hiddenTextarea.value = targetNode.value || targetNode.placeholder || '';
+
+          let height = hiddenTextarea.scrollHeight;
+          let minHeight = -Infinity;
+          let maxHeight = Infinity;
+
+          if (boxSizing === 'border-box') {
+            height = height + borderSize;
+          } else if (boxSizing === 'content-box') {
+            height = height - paddingSize;
+          }
+
+          hiddenTextarea.value = '';
+          let singleRowHeight = hiddenTextarea.scrollHeight - paddingSize;
+
+          if (minRows !== null) {
+            minHeight = singleRowHeight * minRows;
+            if (boxSizing === 'border-box') {
+              minHeight = minHeight + paddingSize + borderSize;
+            }
+            height = Math.max(minHeight, height);
+          }
+          if (maxRows !== null) {
+            maxHeight = singleRowHeight * maxRows;
+            if (boxSizing === 'border-box') {
+              maxHeight = maxHeight + paddingSize + borderSize;
+            }
+            height = Math.min(maxHeight, height);
+          }
+
+          return {
+            height: `${height}px`,
+            minHeight: `${minHeight}px`,
+            maxHeight: `${maxHeight}px`
+          };
+        },
+        calculateNodeStyling: function(node) {
+          const style = window.getComputedStyle(node);
+
+          const boxSizing = style.getPropertyValue('box-sizing');
+
+          const paddingSize = (
+            parseFloat(style.getPropertyValue('padding-bottom')) +
+            parseFloat(style.getPropertyValue('padding-top'))
+          );
+
+          const borderSize = (
+            parseFloat(style.getPropertyValue('border-bottom-width')) +
+            parseFloat(style.getPropertyValue('border-top-width'))
+          );
+
+          const contextStyle = CONTEXT_STYLE
+            .map(name => `${name}:${style.getPropertyValue(name)}`)
+            .join(';');
+
+          return {
+            contextStyle,
+            paddingSize,
+            borderSize,
+            boxSizing
+          };
+        }
+
+      }
+    })
+  </script>]]></content>
     
     <summary type="html">
     
-        &lt;link href=&quot;/css/app.9bd8bf302c6db2c926ed30a59be3d738.css&quot; rel=&quot;stylesheet&quot;&gt;
-
-
-&lt;p&gt;  &lt;div id=&quot;app&quot;&gt;&lt;/div&gt;&lt;br&gt;  &lt;script type=&quot;text/javascrip
+        &lt;script src=&quot;https://unpkg.com/vue/dist/vue.js&quot;&gt;&lt;/script&gt;
+  &lt;style&gt;
+    .wrapper {
+      display: inline-block;
+      width: 100%;
+      p
     
     </summary>
     
