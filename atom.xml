@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://this.dog/"/>
-  <updated>2017-04-26T08:38:49.000Z</updated>
+  <updated>2017-04-26T08:45:00.000Z</updated>
   <id>http://this.dog/</id>
   
   <author>
@@ -20,41 +20,63 @@
     <link href="http://this.dog/2017/04/22/autosize-textarea/"/>
     <id>http://this.dog/2017/04/22/autosize-textarea/</id>
     <published>2017-04-22T09:59:03.000Z</published>
-    <updated>2017-04-26T08:38:49.000Z</updated>
+    <updated>2017-04-26T08:45:00.000Z</updated>
     
-    <content type="html"><![CDATA[<p>  最近一直在看Element和iview的源码。iview有很多代码都借鉴了element，比如在input，select等模块，之前Element一周年的时候还发文把iveiw给喷了一顿。<br>做下笔记，如何实现一个自增长的文本域。<br>  <script src="https://unpkg.com/vue/dist/vue.js"></script><br>  <style><br>    .wrapper {<br>      display: inline-block;<br>      width: 100%;<br>      position: relative;<br>      vertical-align: middle;<br>      margin: 0;<br>      padding: 0;<br>    }</p>
-<pre><code>textarea {
-  max-width: 100%;
-  vertical-align: bottom;
-  font-size: 14px;
-}
+    <content type="html"><![CDATA[  <script src="https://unpkg.com/vue/dist/vue.js"></script>
+  <style>
+    .wrapper {
+      display: inline-block;
+      width: 100%;
+      position: relative;
+      vertical-align: middle;
+      margin: 0;
+      padding: 0;
+    }
 
-.i-input {
-  display: inline-block;
-  width: 300px;
-  line-height: 1.5;
-  padding: 4px 7px;
-  border: 1px solid #d7dde4;
-  border-radius: 4px;
-  color: #657180;
-  background-color: #fff;
-  background-image: none;
-  position: relative;
-  cursor: text;
-}
+    textarea {
+      max-width: 100%;
+      vertical-align: bottom;
+      font-size: 14px;
+      resize:none;
+    }
 
-.i-input:hover {
-  border-color: #42b983;
-}
+    .i-input {
+      display: inline-block;
+      width: 200px;
+      line-height: 1.5;
+      padding: 4px 7px;
+      border: 1px solid #d7dde4;
+      border-radius: 4px;
+      color: #657180;
+      background-color: #fff;
+      background-image: none;
+      position: relative;
+      cursor: text;
+    }
 
-.i-input:focus {
-  border-color: #42b983;
-  outline: 0;
-}
-</code></pre><p>  </style></p>
-  <div id="app"><br>    <div class="wrapper"><br>      <textarea class="i-input" ref="textarea" :style="textareaStyles" placeholder="请输入..." :value="currentValue" @input="handleInput"><br>        </textarea><br>    </div><br>  </div>
+    .i-input:hover {
+      border-color: #42b983;
+    }
 
+    .i-input:focus {
+      border-color: #42b983;
+      outline: 0;
+    }
+  </style>
+
+  最近一直在看Element和iview的源码。iview有很多代码都借鉴了element，比如在input，select等模块，之前Element一周年的时候还发文把iveiw给喷了一顿。
+做下笔记，如何实现一个自增长的文本域。
+
+
+  <div id="app" style="margin:30px 0;">
+    <div class="wrapper">
+      <textarea class="i-input" ref="textarea" :style="textareaStyles" placeholder="请输入..." :value="currentValue" @input="handleInput">
+        </textarea>
+    </div>
+  </div>
 <script>
+
+
 var hiddenTextarea;
 
     var HIDDEN_STYLE = `
@@ -103,7 +125,7 @@ var hiddenTextarea;
         value(val){
           this.setCurrentValue(val);
         }
-      }
+      },
       methods: {
         handleInput: function(event) {
           var value = event.target.value;
@@ -213,7 +235,12 @@ var hiddenTextarea;
     
     <summary type="html">
     
-      &lt;p&gt;  最近一直在看Element和iview的源码。iview有很多代码都借鉴了element，比如在input，select等模块，之前Element一周年的时候还发文把iveiw给喷了一顿。&lt;br&gt;做下笔记，如何实现一个自增长的文本域。&lt;br&gt;  &lt;script src=
+        &lt;script src=&quot;https://unpkg.com/vue/dist/vue.js&quot;&gt;&lt;/script&gt;
+  &lt;style&gt;
+    .wrapper {
+      display: inline-block;
+      width: 100%;
+      p
     
     </summary>
     
