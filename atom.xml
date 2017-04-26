@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://this.dog/"/>
-  <updated>2017-04-26T08:33:49.000Z</updated>
+  <updated>2017-04-26T08:35:45.000Z</updated>
   <id>http://this.dog/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://this.dog/2017/04/22/autosize-textarea/"/>
     <id>http://this.dog/2017/04/22/autosize-textarea/</id>
     <published>2017-04-22T09:59:03.000Z</published>
-    <updated>2017-04-26T08:33:49.000Z</updated>
+    <updated>2017-04-26T08:35:45.000Z</updated>
     
     <content type="html"><![CDATA[<p>  最近一直在看Element和iview的源码。iview有很多代码都借鉴了element，比如在input，select等模块，之前Element一周年的时候还发文把iveiw给喷了一顿。<br>做下笔记，如何实现一个自增长的文本域。<br>  <script src="https://unpkg.com/vue/dist/vue.js"></script><br>  <style><br>    .wrapper {<br>      display: inline-block;<br>      width: 100%;<br>      position: relative;<br>      vertical-align: middle;<br>      margin: 0;<br>      padding: 0;<br>    }</p>
 <pre><code>textarea {
@@ -55,6 +55,20 @@
   <div id="app"><br>    <div class="wrapper"><br>      <textarea class="i-input" ref="textarea" :style="textareaStyles" placeholder="请输入..." :value="currentValue" @input="handleInput"><br>        </textarea><br>    </div><br>  </div>
 
 <script>
+var hiddenTextarea;
+
+    var HIDDEN_STYLE = `
+    height:0 !important;
+    min-height:0 !important;
+    max-height:none !important;
+    visibility:hidden !important;
+    overflow:hidden !important;
+    position:absolute !important;
+    z-index:-1000 !important;
+    top:0 !important;
+    right:0 !important
+`;
+
   var CONTEXT_STYLE = [
       'letter-spacing',
       'line-height',
