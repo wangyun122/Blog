@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://this.dog/"/>
-  <updated>2017-05-07T15:20:07.000Z</updated>
+  <updated>2017-05-07T15:20:44.000Z</updated>
   <id>http://this.dog/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://this.dog/2017/04/22/autosize-textarea/"/>
     <id>http://this.dog/2017/04/22/autosize-textarea/</id>
     <published>2017-04-22T09:59:03.000Z</published>
-    <updated>2017-05-07T15:20:07.000Z</updated>
+    <updated>2017-05-07T15:20:44.000Z</updated>
     
     <content type="html"><![CDATA[  <script src="https://unpkg.com/vue/dist/vue.js"></script>
   <style>
@@ -66,7 +66,7 @@
 
   最近一直在看Element和iview的源码。iview有很多代码都借鉴了element，比如在input，select等模块，之前Element一周年的时候还发文把iveiw给喷了一顿。
 做下笔记，如何实现一个自增长的文本域。
-<a id="more"></a>
+
 
   <div id="app" style="margin:30px 0;">
     <div class="wrapper">
@@ -75,7 +75,7 @@
     </div>
   </div>
 <script>
-
+<a id="more"></a>
 
 var hiddenTextarea;
 
@@ -279,6 +279,15 @@ var hiddenTextarea;
 
   最近一直在看Element和iview的源码。iview有很多代码都借鉴了element，比如在input，select等模块，之前Element一周年的时候还发文把iveiw给喷了一顿。
 做下笔记，如何实现一个自增长的文本域。
+
+
+  &lt;div id=&quot;app&quot; style=&quot;margin:30px 0;&quot;&gt;
+    &lt;div class=&quot;wrapper&quot;&gt;
+      &lt;textarea class=&quot;i-input&quot; ref=&quot;textarea&quot; :style=&quot;textareaStyles&quot; placeholder=&quot;请输入...&quot; :value=&quot;currentValue&quot; @input=&quot;handleInput&quot;&gt;
+        &lt;/textarea&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;script&gt;
     
     </summary>
     
